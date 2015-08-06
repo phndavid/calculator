@@ -1,0 +1,194 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView"
+        android:layout_marginTop="76dp"
+        android:text="o"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/gridnumber"
+        android:layout_below="@+id/editText"
+        android:layout_marginTop="68dp">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/AC"
+            android:id="@+id/btnac"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:onClick="getClear" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/CE"
+            android:id="@+id/btnce"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:onClick="getDelete" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/siete"
+            android:id="@+id/btn7"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:onClick="getSeven" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ocho"
+            android:id="@+id/btn8"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="getEight" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nueve"
+            android:id="@+id/btn9"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:onClick="getNine" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cuatro"
+            android:id="@+id/btn4"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:onClick="getFour" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cinco"
+            android:id="@+id/btn5"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:onClick="getFive" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/seis"
+            android:id="@+id/btn6"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:onClick="getSix" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/uno"
+            android:id="@+id/btn1"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:onClick="getOne" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/dos"
+            android:id="@+id/btn2"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:onClick="getTwo" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tres"
+            android:id="@+id/btn3"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:onClick="getThree" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/suma"
+            android:id="@+id/btnsum"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:onClick="getAdd" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cero"
+            android:id="@+id/btn0"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:onClick="getCero" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/multiplicacion"
+            android:id="@+id/btnmul"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:onClick="getMul" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/division"
+            android:id="@+id/btndiv"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:onClick="getDiv" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/resta"
+            android:id="@+id/btnres"
+            android:layout_row="5"
+            android:layout_column="1"
+            android:onClick="getSub" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/igual"
+            android:id="@+id/btnigual"
+            android:layout_row="5"
+            android:layout_column="2"
+            android:onClick="getEquals" />
+
+    </GridLayout>
+
+</RelativeLayout>
