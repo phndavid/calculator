@@ -7,57 +7,84 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.Console;
 
 
 public class MainActivity extends ActionBarActivity {
     private EditText editText;
+    private TextView textView;
+    private String operation;
 
-    public Integer getCero(View view){
-        return 0;
+    public void getDelete(View view){
+        if(operation != null) {
+            operation = operation.substring(0, operation.length() - 1);
+            editText.setText(operation);
+        }
     }
-    public Integer getOne(View view){
-        return 1;
+    public void getClear(View view){
+        operation = "0";
+        editText.setText(operation);
     }
-    public Integer getTwo(View view){
-        return 2;
+    public void getCero(View view){
+        operation  +="0";
+        editText.setText(operation);
     }
-    public Integer getThree(View view){
-        return 3;
+    public void getOne(View view){
+        operation += "1";
+        editText.setText(operation);
     }
-    public Integer getFour(View view){
-        return 4;
+    public void getTwo(View view){
+        operation  +="2";
+        editText.setText(operation);
     }
-    public Integer getFive(View view){
-        return 5;
+    public void getThree(View view){
+        operation  +="3";
+        editText.setText(operation);
     }
-    public Integer getSix(View view){
-        return 6;
+    public void getFour(View view){
+        operation  +="4";
+        editText.setText(operation);
     }
-    public Integer getSeven(View view){
-        return 7;
+    public void getFive(View view){
+        operation  +="5";
+        editText.setText(operation);
     }
-    public Integer getEight(View view){
-        return 8;
+    public void getSix(View view){
+        operation  +="6";
+        editText.setText(operation);
     }
-    public Integer getNine(View view){
-        return 9;
+    public void getSeven(View view){
+        operation  +="7";
+        editText.setText(operation);
     }
-    public String getAdd(View view){
-        return "+";
+    public void getEight(View view){
+        operation  +="8";
+        editText.setText(operation);
     }
-    public String getSub(View view){
-        return "-";
+    public void getNine(View view){
+        operation  +="9";
+        editText.setText(operation);;
     }
-    public String getMul(View view){
-        return "*";
+    public void getAdd(View view){
+        operation  +="+";
+        editText.setText(operation);
     }
-    public String getDiv(View view){
-        return "/";
+    public void getSub(View view){
+        operation  +="-";
+        editText.setText(operation);
+    }
+    public void getMul(View view){
+        operation  +="*";
+        editText.setText(operation);
+    }
+    public void getDiv(View view){
+        operation  +="/";
+        editText.setText(operation);
     }
 
-    public Integer operation(String ope, int num1, int num2){
+    public Integer result(String ope, int num1, int num2){
         switch (ope){
             case "+":
                 return num1 + num2;
@@ -71,16 +98,17 @@ public class MainActivity extends ActionBarActivity {
         return 0;
     }
     public void init(){
-
+        operation = "";
         editText = (EditText) findViewById(R.id.editText);
-
+        textView = (TextView) findViewById(R.id.textView);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        int result = operation("+", 5, 5);
+        int result = result("+", 5, 5);
         Log.d("resultado", "Este es el resultado de la suma: " + result);
     }
 
