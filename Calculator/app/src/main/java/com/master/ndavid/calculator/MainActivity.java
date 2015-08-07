@@ -16,16 +16,18 @@ public class MainActivity extends ActionBarActivity {
     private EditText editText;
     private TextView textView;
     private String operation;
+    private String sign;
 
     public void getDelete(View view){
-        if(operation != null) {
+        if(operation != null && !operation.equals("")) {
             operation = operation.substring(0, operation.length() - 1);
             editText.setText(operation);
         }
     }
     public void getClear(View view){
-        operation = "0";
+        operation = "";
         editText.setText(operation);
+        textView.setText(operation);
     }
     public void getCero(View view){
         operation  +="0";
@@ -68,23 +70,40 @@ public class MainActivity extends ActionBarActivity {
         editText.setText(operation);;
     }
     public void getAdd(View view){
-        operation  +="+";
-        editText.setText(operation);
+        verifyOperation("+");
     }
     public void getSub(View view){
-        operation  +="-";
-        editText.setText(operation);
+        verifyOperation("-");
     }
     public void getMul(View view){
-        operation  +="*";
-        editText.setText(operation);
+        verifyOperation("*");
     }
     public void getDiv(View view){
-        operation  +="/";
-        editText.setText(operation);
+        verifyOperation("/");
     }
-
-    public Integer result(String ope, int num1, int num2){
+    public void verifyOperation(String operator){
+        if(!operation.equals("")){
+            char end = operation.charAt(operation.length()-1);
+            if(isOperator(end))
+                operation = operation.replace(end+"",operator);
+            else
+                operation  +=operator;
+            sign=operator;
+            editText.setText(operation);
+        }
+    }
+    public void getEquals(View view){
+        if(operation != null && !operation.equals("") && !sign.equals("")) {
+            String[] numbers = operation.split('\\' + sign);
+            float num1 = Float.parseFloat(numbers[0]);
+            float num2 = Float.parseFloat(numbers[1]);
+            float result = result(sign, num1, num2);
+            editText.setText(result + "");
+            textView.setText(operation + "=");
+            operation = result + "";
+        }
+    }
+    public Float result(String ope, float num1, float num2){
         switch (ope){
             case "+":
                 return num1 + num2;
@@ -95,10 +114,16 @@ public class MainActivity extends ActionBarActivity {
             case "*":
                 return num1 * num2;
         }
-        return 0;
+        return null;
+    }
+    public boolean isOperator(char ope){
+        if(ope=='+' || ope=='-' || ope=='/' || ope=='*')
+            return true;
+        return false;
     }
     public void init(){
         operation = "";
+        sign = "";
         editText = (EditText) findViewById(R.id.editText);
         textView = (TextView) findViewById(R.id.textView);
     }
@@ -108,8 +133,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        int result = result("+", 5, 5);
-        Log.d("resultado", "Este es el resultado de la suma: " + result);
     }
 
 
